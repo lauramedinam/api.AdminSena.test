@@ -8,15 +8,22 @@ use Illuminate\Database\Eloquent\Model;
 class Training_Center extends Model
 {
     use HasFactory;
-     //Relacion muchos a uno (Inversa a uno a muchos)
+    protected $table = 'training_centers';
+
+    protected $fillable =[
+        'nombre',
+        'ubicacion',
+    ];
+
+    //Relacion uno a muchos
     public function teachers()
     {
-        return $this->hasMany(Teacher::class, ' teacher_id');
+        return $this->hasMany(Teacher::class, 'teacher_id');
     }
-      //Relacion muchos a uno (Inversa a uno a muchos)
+
+    //Relacion uno a muchos
     public function courses()
     {
-        return $this->hasMany(Course::class, ' teacher_id');
+        return $this->hasMany(Course::class, 'course_id');
     }
-    
 }

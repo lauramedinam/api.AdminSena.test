@@ -8,6 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Apprentice extends Model
 {
     use HasFactory;
+    protected $table = 'apprentices';
+    protected $fillable =[
+        'nombre',
+        'email',
+        'telefono',
+        'computer_id',
+        'course_id',
+    ];
     // realcion de uno a uno
     public function computer()
     {
